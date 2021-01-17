@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/maxluetkemeyer/luceki_theorie/main/logo.png?token=AFPOOFKZLG6J3FHYGTPZXG3ABWLA2)
+![](https://raw.githubusercontent.com/maxluetkemeyer/informatiCup-2021-luceki/main/monitoring/img/logo.png)
 # informatiCuo 2021 Team luceki - Handbuch
 
 ## Inhaltsverzeichnis
@@ -17,10 +17,8 @@
 
 ## docker verwenden
 ### Vorgefertigtes Image verwenden
-```
-docker pull TODO ÄNDERN
-docker tag TODO ÄNDERN luceki
-```
+
+[Docker Hub luceki](https://hub.docker.com/repository/docker/maxluetkemeyer/luceki)
 
 ### Build
 ```

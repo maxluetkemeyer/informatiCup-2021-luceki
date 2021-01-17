@@ -1,0 +1,4 @@
+dist/
+test/
+testServer/
+tactics/tfModels/

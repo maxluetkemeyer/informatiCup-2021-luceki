@@ -1,0 +1,54 @@
+<!-- HEAD -->
+<%- include('../partials/head'); %>
+<link rel="stylesheet" type="text/css" href="styles/history.css">
+</head>
+<body>
+
+<div id="logo">
+    <!--<img src="../img/logo.svg" alt="SVG mit img Tag laden">-->
+    <span>History</span>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainWrapper" class="wrapper">
+    
+    <%- include('../partials/leftSidebar'); %>
+    
+    <div id="field" class="flexContainer">
+
+    </div>
+    
+    <div id="rightSidebar" class="sidebar">
+        <div id="startButton">
+            <p>> </p>
+            <span id="startButtonText" onclick="playHistory();" >Play </span>
+            <input type="range" id="playSpeed" name="playSpeed" min="10" max="1000">
+        </div>
+        <div id="loading_spinner_history">
+            <img id="waitingGif" src="../img/waiting.gif" alt="waiting for other players..."/>
+        </div>
+        <div id="gameInfo">
+            Loading. . .
+        </div>
+        <div id="roundListContainer">
+            <ul id="roundList">
+
+            </ul>
+        </div>
+        <div id="historyListContainer">
+            <ul id="historyList">
+
+            </ul>
+        </div>
+    </div>
+    
+</div>
+
+<!-- FOOTER -->
+<%- include('../partials/footer'); %>
+
+<script src="scripts/history/history.js"></script>
+<script src="scripts/history/historySocket.js"></script>
+
+</body>
+</html>

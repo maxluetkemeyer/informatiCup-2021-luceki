@@ -1,0 +1,14 @@
+ws://localhost:3333
+
+//bei linux mit sudo
+yarn start --url="GAMESERVERURL:PORT" --clientPort=WEBSERVERPORT
+yarn start --url="ws://localhost:3333" --clientPort=5000
+
+
+// Server starten
+yarn server
+ODER: npm run server
+
+
+
+sudo yarn start --url="ws://localhost:3333" --test=1 --clientPort=5000 

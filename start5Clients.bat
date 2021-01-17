@@ -1,0 +1,5 @@
+start cmd /C "yarn start --url="ws://localhost:3333" --test=1 --clientPort=5000 --autoStart="dontHit""
+start cmd /C "yarn start --url="ws://localhost:3333" --test=1 --clientPort=5001 --autoStart="dontHit""
+start cmd /C "yarn start --url="ws://localhost:3333" --test=1 --clientPort=5002 --autoStart="dontHit""
+start cmd /C "yarn start --url="ws://localhost:3333" --test=1 --clientPort=5003 --autoStart="dontHit""
+start cmd /C "yarn start --url="ws://localhost:3333" --test=1 --clientPort=5004 --autoStart="dontHit""

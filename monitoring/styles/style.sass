@@ -1,0 +1,312 @@
+@import color
+
+html, body
+    margin: 0
+    padding: 0
+    height: 100%
+    box-sizing: border-box
+    background-color: $background-color
+    font-size: 10px
+    font-family: 'Roboto', sans-serif
+    color: $white
+
+
+div
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    transition: 300ms
+
+
+p, a
+    margin: 0
+    text-decoration: none
+
+
+h2
+    margin: 0
+    margin-top: 0.5vw
+    margin-bottom: 0.5vw
+    padding: 0
+    font-size: 1.2vw
+    letter-spacing: 2px
+
+#logo 
+    position: absolute
+    top: 0%
+    left: 50%
+    transform: translateX(-50%)
+    width: 13%
+    height: 6%
+    background-color: $headding-color
+    box-shadow: 0px 2px 5px #111111
+    border-radius: 0 0 15px 15px
+
+    img 
+        margin: auto
+        margin-top: 0.5vh
+        width: 8vw
+        display: block
+
+#loading_spinner
+    display: none
+    border: none
+
+#startButton
+    margin-left: auto
+    margin-right: 0
+    margin-bottom: 2rem
+    width: 80%
+    height: 7%
+    background-color: #70AD47
+    border-radius: 10px 0 0 10px
+    box-shadow: 2px 2px 5px #111111
+    font-weight: bold
+    font-size: 1.7vw
+    display: flex 
+    padding-left: 2rem
+    cursor: pointer
+
+    span 
+        margin-top: auto
+        margin-bottom: auto
+
+    p
+        transition: 300ms
+        margin-top: auto
+        margin-bottom: auto
+        margin-right: 1rem
+    
+    label
+        margin-left: 0.5vw
+    
+
+#startButton:hover 
+    p
+        transition: 300ms
+        display: block
+
+#timerContainer
+    div
+        margin: 0
+        font-weight: 800
+        font-size: 2rem
+        border: 0
+
+
+#mainH1
+    margin: 0
+    font-weight: 800
+    font-size: 2rem
+
+#mainH1:hover
+    color: 	rgb(4, 255, 128)
+    transform: scale(1.05, 1.05)
+
+.ableToFade
+    transition: all 250ms
+    -webkit-transition: all 250ms
+    -moz-transition: all 250ms
+    -o-transition: all 250ms
+
+
+#timerContainer 
+    div:hover
+        color: 	rgb(4, 255, 128)
+        transform: scale(1.05, 1.05)
+
+
+#field
+    padding: 0px
+
+.wrapper
+    display: grid
+    grid-template-columns: 20% 60% 20%
+
+.flexContainer
+    display: flex
+    justify-content: center
+    align-items: center
+
+#mainWrapper
+    min-height: 100%
+    max-height: 100%
+
+.sidebar
+    background-color: $sidebar-color
+    box-shadow: 0 0 4px $black
+    position: relative
+
+
+#messages
+    position: absolute
+    right: 2vh
+    bottom: 2vh
+
+.message
+    font-size: 0.7vw
+    white-space: nowrap
+    background-color: rgba(237, 237, 237, 0.85)
+    color: $black
+    padding: 0.8vw
+    margin-top: 1vh
+    border-radius: 0.8rem
+    box-shadow: 0px 2px 7px #111111
+
+
+#footer
+    position: absolute
+    bottom: 1rem
+    left: 50%
+    transform: translateX(-50%)
+    color: grey
+
+    a
+        color: grey
+        transition: 300ms
+
+    a:hover
+        color: $black
+
+
+#leftSidebar 
+    padding-top: 2.6vh
+
+#gameStatistics
+    margin-bottom: 5rem
+    width: 80%
+    height: 6.4vh
+    background-color: $headding-color
+    border-radius: 0 10px 10px 0
+    box-shadow: 0px 2px 7px #111111
+    font-size: 1.8vw
+    display: flex 
+
+#playerlist
+    width: 100%
+    height: 40%
+
+
+.playerContainer
+    position: relative
+
+.playerYou
+    position: absolute
+    right: 3vw
+    top: 50%
+    transform: translateY(-50%)
+    font-size: 2rem
+    color: $background-color
+    font-weight: normal
+    display: none
+    animation-delay: 1.2s
+
+
+.player
+    position: relative
+    margin-bottom: 1rem
+    width: 70%
+    height: 5vh
+    border-radius: 0 10px 10px 0
+    box-shadow: 0px 2px 7px #111111
+    font-size: 1.6vw // Redundant
+    display: flex 
+    color: $black
+    padding-left: 5rem
+
+    span
+        margin-top: auto
+        margin-bottom: auto
+
+
+#player1Container 
+    display: none
+    background-color: #00B0F0
+#player2Container 
+    display: none
+    background-color: #00B050
+    animation-delay: 0.2s
+#player3Container 
+    display: none
+    background-color: #FFC000
+    animation-delay: 0.4s
+#player4Container 
+    display: none
+    background-color: #FF3300
+    animation-delay: 0.6s
+#player5Container 
+    display: none
+    background-color: #7030A0
+    animation-delay: 0.8s
+    color: $white
+#player6Container 
+    display: none
+    background-color: #002060
+    animation-delay: 1s
+    color: $white
+
+
+#youContainer
+    position: relative
+    margin-bottom: 2rem
+
+    #youHeadding
+        width: 30%
+        height: 6.4vh
+        background-color: $headding-color
+        border-radius: 0 10px 10px 0
+        box-shadow: 0px 2px 7px #111111
+        font-size: 1.8vw
+        display: flex 
+    
+    #roundDisplay
+        position: absolute
+        top: 50%
+        left: 40%
+        transform: translateY(-50%)
+        font-size: 1.1vw
+        color: $background-color
+
+    
+
+
+#chart-container
+    position: relative 
+    height: 10vh
+    width: 15vw
+    margin-left: 0.8vw
+    margin-bottom: 2rem
+
+
+#moveHistory
+    position: relative
+    width: 18vw
+    margin-left: 1vw
+    font-size: 2.6rem
+    color: $background-color
+    overflow: hidden
+    height: 24vh
+
+    span:nth-child(2)
+        position: absolute
+        top: 0
+        right: 0
+
+    div
+        background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0), rgba(76, 91, 97, 0.8))
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+        z-index: 100
+
+
+#rightSidebar
+    padding-top: 2.6vh
+
+
+.centerText
+    /*height: 80%*/
+    /*max-width: 80% */
+    margin: auto
+

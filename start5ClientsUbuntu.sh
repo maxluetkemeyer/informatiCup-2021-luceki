@@ -1,0 +1,5 @@
+sudo gnome-terminal -e ' yarn start --url="ws://localhost:3333" --test=1 --autoStart="dontHit" --clientPort=5000' 
+sudo gnome-terminal -e ' yarn start --url="ws://localhost:3333" --test=1 --autoStart="dontHit" --clientPort=5001' 
+sudo gnome-terminal -e ' yarn start --url="ws://localhost:3333" --test=1 --autoStart="dontHit" --clientPort=5002' 
+sudo gnome-terminal -e ' yarn start --url="ws://localhost:3333" --test=1 --clientPort=5003' 
+sudo gnome-terminal -e ' yarn start --url="ws://localhost:3333" --test=1 --clientPort=5004' 

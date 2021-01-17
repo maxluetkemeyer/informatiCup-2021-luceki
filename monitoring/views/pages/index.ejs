@@ -1,0 +1,175 @@
+<!-- HEAD -->
+<%- include('../partials/head'); %>
+<link rel="stylesheet" type="text/css" href="styles/switch.css">
+<link rel="stylesheet" type="text/css" href="styles/index.css">
+
+</head>
+<body>
+
+<div id="logo">
+    <img src="img/logo.png" alt="SVG mit img Tag laden">
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainWrapper" class="wrapper">
+    
+    <%- include('../partials/leftSidebar'); %>
+    
+    <div id="field" class="flexContainer">
+        <div id="loading_spinner">
+            <img id="waitingGif" src="img/waiting.gif" alt="waiting for other players..."/>
+        </div>
+    </div>
+
+    <div id="rightSidebar" class="sidebar">
+        <div id="startButton">
+            <p>> </p><span id="startButtonText">Start Queue</span>
+            <label class="switch" id="autostart" onmouseover="onAutostart = true;" onmouseout="onAutostart = false;">
+                <input type="checkbox" id="autostartCheck">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div id="tacticSelection">
+            <select id="tactic" name="tactic">
+                <option value="dangerFields">Danger Fields</option>
+                <option value="recursiveBnB">Recursive BnB</option>
+                <option value="dontHit">Dont Hit</option>
+                <option value="dontHitRandom">Dont Hit Random</option>
+                <option value="dontHitSemiRandom">Dont Hit Semi Random</option>
+                <option value="tfModels">tfModels</option>
+                <option value="exampleTactic">Example Tactic</option>
+            </select>
+        </div>
+        <div id="tacticOptions">
+            <div id="tactic_recursiveBnB" class="tacticOptions">
+                <div class="tacticDescription">
+                    Die Taktik untersucht welche Züge in der aktuellen Runde möglich sind, simuliert die möglichen Züge und untersucht für jeden simulierten Zug rekursiv weiter, bis die vorgegebene maximale Tiefe von z.B. 30 Zügen erreicht ist oder keine Zeit zum Suchen mehr besteht. Die Taktik nutzt Tiefensuche und Branch and Bound um in der geringen Zeit eine derartige Tiefe errerichen zu können.
+                </div> 
+                <div class="tacticCheckboxContainer">
+                    <input type="number" id="recursiveBnB_searchDepth" name="recursiveBnB_searchDepth" value="30">
+                    <span>Suchtiefe</span>
+                </div> 
+                <div class="tacticCheckboxContainer">
+                    <label class="switch">
+                        <input type="checkbox" id="recursiveBnB_useRandom" name="recursiveBnB_useRandom" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="checkboxInfo" >Zufällige Reinfolge</span> 
+                </div>
+                <ul id="recursiveBnB_patternSelection" class="patternSelection">
+                    <li>Slow down</li>
+                    <li>Turn right</li>
+                    <li>Change nothing</li>
+                    <li>Turn left</li>
+                    <li>Speed up</li>
+                </ul>
+            </div>
+            <div id="tactic_dontHit" class="tacticOptions">
+                <div class="tacticDescription">
+                    Die Taktik lässt den Spieler in der definierten Rangfolge laufen. Ist der Weg vor dem Spieler durch den Spielrand oder eine Spur blockiert, wird das nächste in der Rangfolge versucht.
+                </div>
+                <ul id="dontHit_patternSelection" class="patternSelection">
+                    <li>Right</li>
+                    <li>Front</li>
+                    <li>Left</li>
+                </ul>
+            </div>
+            <div id="tactic_dontHitRandom" class="tacticOptions">
+                <div class="tacticDescription">
+                    Die Taktik lässt den Spieler zufällig laufen. Ist der Weg vor dem Spieler blockiert, durch den Spielrand oder eine Spur, wird etwas anderes versucht.
+                </div>
+            </div>
+            <div id="tactic_dontHitSemiRandom" class="tacticOptions">
+                <div class="tacticDescription">
+                    Diese Abwandlung von DontHitRandom hat "change_nothing" als oberste Priorität. Ob der Spieler im Fall eines Hindernisses nach links oder rechts abbiegt, wird zufällig entschieden.
+                </div>
+            </div>
+            <div id="tactic_dangerFields" class="tacticOptions">
+                <div class="tacticDescription">
+                    Jede Runde wird eine Heatmap der Runde erstellt. Die Taktik versucht dann mithilfe von A* zu einem Bereich zu kommen, der ungefährlich ist. Wird der Agent eingeschlossen, nutzt er recursiveBnB um den Platz effektiv zu nutzen.
+                </div>
+                <h2>INITIALISIERUNG</h2>
+                <div class="tacticCheckboxContainer">
+                    <label class="switch">
+                        <input type="checkbox" id="dangerFields_useAlternative" name="dangerFields_useAlternative" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="checkboxInfo" >Benutzte Alternative</span> 
+                </div>
+                <div class="tacticCheckboxContainer">
+                    <label class="switch">
+                        <input type="checkbox" id="dangerFields_closest" name="dangerFields_closest" checked>
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="checkboxInfo" >A* closest</span> 
+                </div>
+                <h2>VISUALISIERUNG</h2>
+                <div class="tacticCheckboxContainer">
+                    <label class="switch">
+                        <input type="checkbox" id="dangerFields_showHeatMap" name="dangerFields_showHeatMap">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="checkboxInfo" >Zeige Heatmap</span> 
+                </div>
+                <div class="tacticCheckboxContainer">
+                    <label class="switch">
+                        <input type="checkbox" id="dangerFields_showPath" name="dangerFields_showPath">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="checkboxInfo" >Zeige Weg</span> 
+                </div>
+                <div class="tacticCheckboxContainer">
+                    <label class="switch">
+                        <input type="checkbox" id="dangerFields_showGoal" name="dangerFields_showGoal">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="checkboxInfo" >Zeige Ziel</span> 
+                </div>
+                <div class="tacticCheckboxContainer">
+                    <label class="switch">
+                        <input type="checkbox" id="dangerFields_showGoalFields" name="dangerFields_showGoalFields">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="checkboxInfo" >Zeige Ziel Felder</span> 
+                </div>
+            </div>
+            <div id="tactic_tfModels" class="tacticOptions">
+                <div class="tacticDescription">
+                    Reinforcement Learning mit Tensorflow.js. Achtung: Funktioniert nur, wenn tfjs-node installiert ist.
+                </div>
+                <select id="tfModels_selection" name="tfModels_selection">
+                    <% for (var i = 0; i < dirs.length;  i++) { %>
+                        <option value="<%= dirs[i] %>"><%= new Date(parseInt(dirs[i])).toUTCString() %></option>
+                    <% } %>
+                </select>
+                <button id="tfModels_download" type="button">Download Models</button>
+
+            </div>
+            <div id="tactic_exampleTactic" class="tacticOptions">
+                <div class="tacticDescription">
+                    Die Taktik bestimmt den Zug „change_nothing“ für jede Runde des Spielers bis er ausscheidet, lässt ihn also schlicht geradeaus laufen.
+                </div>
+            </div>
+        </div>
+        <a href="/history" target="_blank"><div id="toHistory"><span class="centerText">Zur History ></span></div>  </a>        
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<%- include('../partials/footer'); %>
+
+<!-- Sounds -->
+<audio id="audioUp" style="display: none;"><source src="sounds/up.ogg" type="audio/ogg"></audio>
+<audio id="audioDown" style="display: none;"><source src="sounds/down.ogg" type="audio/ogg"></audio>
+<audio id="audioEliminated" style="display: none;"><source src="sounds/eliminated.ogg" type="audio/ogg"></audio>
+
+<script src="scripts/index.js"></script>
+<script src="scripts/timer.js"></script>
+<script src="scripts/socket.js"></script>
+<script src="scripts/chart.js"></script>
+
+
+</body>
+</html>
